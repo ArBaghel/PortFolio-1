@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Consultant Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-content">
+        <div class="logo">Aditya Singh Baghel</div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="home" class="hero" data-reveal>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="eyebrow">DATA SCIENTIST</p>
+            <h1>I build intelligent solutions with Python, ML &amp; Computer Vision.</h1>
+            <p class="subtitle">
+              I work with machine learning, computer vision and data-driven decision making
+              to turn raw data into practical insights and smart applications.
+            </p>
+            <div class="hero-actions">
+              <a href="services.html#consulting" class="btn primary">Request Consulting</a>
+              <a href="services.html#speaking" class="btn ghost">Book for Speaking</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h2>What I talk about</h2>
+            <ul>
+              <li>Data analytics & business intelligence</li>
+              <li>Career paths into data roles</li>
+              <li>Data strategy for startups</li>
+              <li>Building a data-driven culture</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section" data-reveal>
+        <div class="container about-grid">
+          <div>
+            <h2 class="section-title">About me</h2>
+            <p>
+              I'm a data professional who helps people break into analytics and
+              helps companies actually use their data. I combine hands-on
+              experience with clear, practical teaching.
+            </p>
+            <p>
+              After starting my career with no clear roadmap, I learned what works
+              and what doesn't the hard way. Now I share that experience through
+              consulting, speaking, and online content.
+            </p>
+            <div class="about-actions">
+              <a href="about.html" class="btn primary">Learn More About Me</a>
+              <a
+                href="Aditya%20resume.pdf"
+                class="btn ghost"
+                download="Aditya_Singh_Baghel_CV.pdf"
+                >Download CV</a
+              >
+            </div>
+          </div>
+          <div class="about-highlight">
+            <h3>Topics I focus on</h3>
+            <ul>
+              <li>SQL, spreadsheets & dashboarding</li>
+              <li>Data storytelling for stakeholders</li>
+              <li>Breaking into data careers</li>
+              <li>Building analytics from zero to one</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section" data-reveal>
+        <div class="container contact-grid">
+          <div>
+            <h2 class="section-title">Send a request</h2>
+            <p>
+              Share a bit about what you're looking for. I'll review your message
+              and get back to you as soon as I can.
+            </p>
+            <ul class="contact-info">
+              <li><strong>Email:</strong> adityabharadwaj22.08@gmail.com</li>
+            </ul>
+          </div>
+
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="firstName" type="text" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" name="lastName" type="text" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="requestType">Type of Request</label>
+              <select id="requestType" name="requestType" required>
+                <option value="" disabled selected>Choose an option</option>
+                <option value="consulting">Consulting</option>
+                <option value="speaking">Speaking</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn primary">Send Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
+        <nav>
+          <a href="index.html#home">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const yearSpan = document.getElementById("year");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // simple scroll reveal animations
+      const revealEls = document.querySelectorAll("[data-reveal]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealEls.forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
