@@ -13,6 +13,11 @@
     <header class="navbar">
       <div class="container nav-content">
         <div class="logo">Aditya Singh Baghel</div>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
         <nav>
           <ul class="nav-links">
             <li><a href="index.html#home">Home</a></li>
@@ -114,6 +119,15 @@
     </footer>
 
     <script>
+      const navbar = document.querySelector(".navbar");
+      const navToggle = document.querySelector(".nav-toggle");
+
+      if (navbar && navToggle) {
+        navToggle.addEventListener("click", () => {
+          navbar.classList.toggle("nav-open");
+        });
+      }
+
       const yearSpan = document.getElementById("year");
       if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
