@@ -141,6 +141,13 @@ a {
   max-width: 34rem;
 }
 
+/* small bio line under hero heading */
+.hero-tag {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -222,6 +229,58 @@ a {
 .hero-card li {
   font-size: 0.92rem;
   margin-bottom: 0.5rem;
+}
+
+/* What I talk about section */
+.talk-section {
+  display: flex;
+  justify-content: center;
+}
+
+.talk-card {
+  max-width: 640px;
+  width: 100%;
+}
+
+.talk-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.talk-header h2 {
+  font-size: 1.1rem;
+}
+
+.talk-avatars {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.avatar-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.35);
+}
+
+.avatar-ml {
+  background: radial-gradient(circle at 30% 20%, #f97316, #ea580c);
+}
+
+.avatar-da {
+  background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9);
+}
+
+.avatar-cv {
+  background: radial-gradient(circle at 30% 20%, #a855f7, #7c3aed);
 }
 
 .section {
@@ -403,6 +462,51 @@ a {
   font-size: 0.95rem;
 }
 
+.contact-social {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.contact-social-label {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.3);
+}
+
+.social-icon.linkedin {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.social-icon.instagram {
+  background: radial-gradient(circle at 30% 20%, #f97316, #ec4899);
+}
+
+.social-icon.twitter {
+  background: linear-gradient(135deg, #0f172a, #111827);
+}
+
 .contact-form {
   background-color: #ffffff;
   padding: 1.75rem 1.5rem;
@@ -508,6 +612,48 @@ textarea {
   margin-bottom: 1rem;
 }
 
+/* My Story two-column layout */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.about-story-text {
+  max-width: 40rem;
+}
+
+.about-story-media {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo-card {
+  max-width: 340px;
+  width: 100%;
+  padding: 1.75rem 1.5rem;
+  border-radius: 1.75rem;
+  background: linear-gradient(135deg, #eff6ff, #ffffff);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-photo-card::before {
+  content: none;
+}
+
+.about-photo-card img {
+  width: 230px;
+  height: 230px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+  background-color: #f9fafb;
+}
+
 .about-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -590,11 +736,17 @@ textarea {
   .hero-content,
   .cards-grid,
   .about-grid,
+  .about-story-grid,
   .contact-grid,
   .skills-grid,
   .about-cards-grid,
   .approach-grid {
     grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
+  }
+
+  .about-story-media {
+    margin-top: 1.5rem;
   }
 
   .form-row {
@@ -603,10 +755,6 @@ textarea {
 
   .hero {
     padding-top: 4rem;
-  }
-
-  .hero-card {
-    order: -1;
   }
 
   .nav-content {
@@ -646,8 +794,46 @@ textarea {
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  /* Header on mobile: logo centered, hamburger right */
+  .nav-content {
+    justify-content: center;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+
+  .logo {
+    flex: 0 1 auto;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   .section {
     padding: 3rem 0;
+  }
+
+  .talk-card {
+    max-width: 100%;
+  }
+
+  .talk-header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .talk-avatars {
+    justify-content: center;
   }
 
   .hero {
@@ -662,12 +848,30 @@ textarea {
     text-align: center;
   }
 
+  .about-story-text {
+    text-align: left;
+  }
+
+  .about-story-media {
+    justify-content: center;
+  }
+
   .hero-actions {
     justify-content: center;
   }
 
   .hero-card {
     margin-top: 1.5rem;
+    padding: 1.5rem 1.35rem;
+  }
+
+  .about-photo-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .about-photo-card img {
+    width: 200px;
+    height: 200px;
   }
 
   .hero h1 {
@@ -680,11 +884,15 @@ textarea {
 
   .section-title {
     font-size: 1.5rem;
+    text-align: center;
   }
 
   .subtitle,
   .section-subtitle {
     font-size: 0.95rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cta-banner {

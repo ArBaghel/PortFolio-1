@@ -37,6 +37,7 @@
         <div class="container hero-content">
           <div class="hero-text">
             <p class="eyebrow">DATA SCIENTIST</p>
+            <p class="hero-tag">👨‍💻 Aspiring Data Scientist from Bhopal, India</p>
             <h1>I build intelligent solutions with Python, ML &amp; Computer Vision.</h1>
             <p class="subtitle">
               I work with machine learning, computer vision and data-driven decision making
@@ -47,10 +48,18 @@
               <a href="services.html#speaking" class="btn ghost">Book for Speaking</a>
             </div>
           </div>
-          <div class="hero-card">
-            <h2>What I talk about</h2>
+
+          <div class="hero-card talk-card">
+            <div class="talk-header">
+              <div class="talk-avatars">
+                <div class="avatar-badge avatar-ml"><span>🤖</span></div>
+                <div class="avatar-badge avatar-da"><span>📊</span></div>
+                <div class="avatar-badge avatar-cv"><span>👁️</span></div>
+              </div>
+              <h2>🎙️ What I talk about</h2>
+            </div>
             <ul>
-              <li>Data analytics & business intelligence</li>
+              <li>Data analytics &amp; business intelligence</li>
               <li>Career paths into data roles</li>
               <li>Data strategy for startups</li>
               <li>Building a data-driven culture</li>
@@ -63,7 +72,7 @@
       <section id="about" class="section" data-reveal>
         <div class="container about-grid">
           <div>
-            <h2 class="section-title">About me</h2>
+            <h2 class="section-title">About me 👋</h2>
             <p>
               I'm a data professional who helps people break into analytics and
               helps companies actually use their data. I combine hands-on
@@ -100,17 +109,50 @@
       <section id="contact" class="section" data-reveal>
         <div class="container contact-grid">
           <div>
-            <h2 class="section-title">Send a request</h2>
+            <h2 class="section-title">Send a request ✉️</h2>
             <p>
               Share a bit about what you're looking for. I'll review your message
               and get back to you as soon as I can.
             </p>
             <ul class="contact-info">
               <li><strong>Email:</strong> adityabharadwaj22.08@gmail.com</li>
+              <li><strong>Phone:</strong> +91 9340846607</li>
             </ul>
+            <div class="contact-social">
+              <span class="contact-social-label">Connect:</span>
+              <div class="social-links">
+                <a
+                  href="https://www.linkedin.com/in/aditya-singh-baghel-562832296"
+                  class="social-icon linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                >
+                  in.
+                </a>
+                <a
+                  href="https://www.instagram.com/ar_baghel04?igsh=MWhua2N0Z3dmbzdqbg=="
+                  class="social-icon instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram profile"
+                >
+                  Ins.
+                </a>
+                <a
+                  href="https://x.com/ArbaghelRb"
+                  class="social-icon twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter (X) profile"
+                >
+                  X.
+                </a>
+              </div>
+            </div>
           </div>
 
-          <form class="contact-form">
+          <form class="contact-form" id="contactForm">
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -155,6 +197,8 @@
         <nav>
           <a href="index.html#home">Home</a>
           <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="Certifications.html">Certifications</a>
           <a href="services.html">Services</a>
           <a href="index.html#contact">Contact</a>
         </nav>
@@ -191,6 +235,46 @@
       );
 
       revealEls.forEach((el) => observer.observe(el));
+
+      // contact form -> Google Apps Script endpoint
+      const contactForm = document.getElementById("contactForm");
+      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNJSgeW1PEwU9nLuA1_2eysndeRDirvmiOx5-OZLIDRew1mWew76t9wX78yJABqQ7i/exec"; // TODO: replace
+
+      if (contactForm && GOOGLE_SCRIPT_URL.startsWith("https")) {
+        contactForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData(contactForm);
+          const payload = {
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            email: formData.get("email"),
+            requestType: formData.get("requestType"),
+            message: formData.get("message"),
+            userAgent: navigator.userAgent,
+            source: window.location.href,
+          };
+
+          try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            });
+
+            contactForm.reset();
+            alert("Thank you! Your request has been sent.");
+          } catch (error) {
+            console.error("Error submitting form", error);
+            alert(
+              "There was a problem sending your request. Please email me directly at adityabharadwaj22.08@gmail.com."
+            );
+          }
+        });
+      }
     </script>
   </body>
 </html>
