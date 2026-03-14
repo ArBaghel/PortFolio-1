@@ -1,139 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certifications | Data Consultant Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-content">
-        <div class="logo">Aditya Singh Baghel</div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Certifications | Aditya Singh Baghel</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    .roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .rm-card{background:var(--surf);border:1px dashed var(--gb2);border-radius:var(--r);padding:1.35rem;opacity:.75;transition:opacity .2s,transform .25s var(--sp)}
+    .rm-card:hover{opacity:1;transform:translateY(-4px)}
+    .rm-card .rm-tag{font-size:.68rem;font-weight:700;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;font-family:var(--fm);margin-bottom:.45rem}
+    .rm-card h4{font-family:var(--fd);font-size:.9rem;font-weight:700;margin-bottom:.35rem}
+    .rm-card p{font-size:.82rem;color:var(--tx2);line-height:1.65}
+    .rm-card .rm-icon{width:38px;height:38px;border-radius:10px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);display:flex;align-items:center;justify-content:center;color:var(--g1);margin-bottom:.75rem}
+    @media(max-width:700px){.roadmap-grid{grid-template-columns:1fr}}
+    @media(max-width:480px){.cert-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-content">
-          <div class="hero-text">
-            <p class="eyebrow">CERTIFICATIONS</p>
-            <h1>Credentials that back up your skills.</h1>
-            <p class="subtitle">
-              Highlight cloud, data, and analytics certifications that make you
-              stand out.
-            </p>
-          </div>
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <div class="logo">ASB<span class="dot">.</span><span class="sub">Data Scientist</span></div>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li><li><a href="certifications.html">Certifications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><i data-lucide="moon" style="width:16px;height:16px"></i></span>
+        <span class="icon-sun"><i data-lucide="sun" style="width:16px;height:16px"></i></span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="hex-bg" style="position:absolute;inset:0;z-index:0"></div>
+  <div class="ph-orb"></div>
+  <div class="container ph-c">
+    <div class="ew"><span class="el"></span>Credentials</div>
+    <h1>Certifications &amp;<br><span class="gt">Achievements</span></h1>
+    <p>Industry-recognized credentials and recognition validating my expertise in data science and analytics.</p>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="section">
+  <div class="container">
+    <div class="sh" data-r>
+      <div class="ew"><span class="el"></span>Earned Credentials</div>
+      <h2 class="st">Professional Certifications</h2>
+      <p class="ss">Certifications from top institutions covering machine learning, SQL, and analytics.</p>
+    </div>
+    <div class="cert-grid" data-r>
+
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-badge">Specialization · 3 Courses · Stanford</span>
+          <img src="Certificates/ML.png" alt="Machine Learning Specialization" loading="lazy"/>
         </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title">Certifications</h2>
-          <p class="section-subtitle">
-            A selection of data and analytics certifications. You can keep adding
-            more here as you earn them.
-          </p>
-
-          <div class="cert-grid">
-            <article class="cert-card">
-              <div class="cert-image">
-                <img
-                  src="Certificates/ML.png"
-                  alt="Machine Learning Specialization certificate"
-                  loading="lazy"
-                />
-              </div>
-              <div class="cert-meta">
-                <h3>Machine Learning Specialization</h3>
-                <p>
-                  Coursera specialization in machine learning covering supervised,
-                  unsupervised learning and practical ML workflows.
-                </p>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/specialization/5YB5S999GR5F"
-                  class="cert-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View credential →</a
-                >
-              </div>
-            </article>
-
-            <article class="cert-card">
-              <div class="cert-image">
-                <img
-                  src="Certificates/SQL.png"
-                  alt="SQL certificate"
-                  loading="lazy"
-                />
-              </div>
-              <div class="cert-meta">
-                <h3>SQL for Data Analysis</h3>
-                <p>
-                  Coursera certification focused on writing SQL queries, joining
-                  data and building analytical reports.
-                </p>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/9OSJH07RJLJA"
-                  class="cert-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >View credential →</a
-                >
-              </div>
-            </article>
-          </div>
+        <div class="cert-body">
+          <div class="cert-meta">Stanford Online &amp; DeepLearning.AI · Coursera · Oct 2025</div>
+          <div class="cert-title">Machine Learning Specialization</div>
+          <p class="cert-desc">Andrew Ng's flagship ML program — supervised &amp; unsupervised learning, recommender systems, neural networks, and practical ML workflows used in industry.</p>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/5YB5S999GR5F" class="cert-cta" target="_blank" rel="noopener">
+            View Credential <i data-lucide="arrow-right" style="width:13px;height:13px"></i>
+          </a>
         </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-content">
-        <p>© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
-        <nav>
-          <a href="index.html#home">Home</a>
-          <a href="about.html">About</a>
-          <a href="projects.html">Projects</a>
-          <a href="certifications.html">Certifications</a>
-          <a href="services.html">Services</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
       </div>
-    </footer>
 
-    <script>
-      const navbar = document.querySelector(".navbar");
-      const navToggle = document.querySelector(".nav-toggle");
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-badge">Certification · University of Michigan</span>
+          <img src="Certificates/SQL.png" alt="Introduction to SQL" loading="lazy"/>
+        </div>
+        <div class="cert-body">
+          <div class="cert-meta">University of Michigan · Coursera · Sep 2025</div>
+          <div class="cert-title">Introduction to SQL</div>
+          <p class="cert-desc">Certification covering SQL queries, joins, aggregations, subqueries and analytical reporting — the foundation of every data professional's toolkit.</p>
+          <a href="https://www.coursera.org/account/accomplishments/verify/9OSJH07RJLJA" class="cert-cta" target="_blank" rel="noopener">
+            View Credential <i data-lucide="arrow-right" style="width:13px;height:13px"></i>
+          </a>
+        </div>
+      </div>
 
-      if (navbar && navToggle) {
-        navToggle.addEventListener("click", () => {
-          navbar.classList.toggle("nav-open");
-        });
-      }
+    </div>
+  </div>
+</section>
 
-      const yearSpan = document.getElementById("year");
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
-    </script>
-  </body>
+<!-- Achievements -->
+<section class="section s-alt">
+  <div class="container" data-r>
+    <div class="sh">
+      <div class="ew"><span class="el"></span>Achievements</div>
+      <h2 class="st">Recognition &amp; Awards <span class="ic" style="color:var(--g1)"><i data-lucide="trophy" style="width:1.1em;height:1.1em"></i></span></h2>
+      <p class="ss">Awards earned beyond academics for critical thinking, teamwork, and leadership.</p>
+    </div>
+    <div class="ach-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem">
+      <div class="ach-card">
+        <div class="ach-icon"><i data-lucide="medal" style="width:20px;height:20px"></i></div>
+        <div class="ach-info">
+          <h4>Student of the Year</h4>
+          <p>Won the Student of the Year title at Sunstone Bhopal — recognizing exceptional critical thinking, analytical skills and academic performance throughout the year.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i data-lucide="trophy" style="width:20px;height:20px"></i></div>
+        <div class="ach-info">
+          <h4>Intra-College Cricket Champion</h4>
+          <p>Secured victory in intra-college cricket at Sunstone Bhopal, demonstrating strategic thinking, strong teamwork, and leadership under pressure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Learning Roadmap -->
+<section class="section">
+  <div class="container" data-r>
+    <div class="sh">
+      <div class="ew"><span class="el"></span>What's Next</div>
+      <h2 class="st">Learning Roadmap <span class="ic" style="color:var(--g3)"><i data-lucide="map" style="width:1.1em;height:1.1em"></i></span></h2>
+      <p class="ss">Continuously expanding expertise with planned upcoming certifications.</p>
+    </div>
+    <div class="roadmap-grid">
+      <div class="rm-card">
+        <div class="rm-icon"><i data-lucide="loader" style="width:18px;height:18px"></i></div>
+        <div class="rm-tag">In Progress</div>
+        <h4>Deep Learning Specialization</h4>
+        <p>CNNs, RNNs, NLP, and computer vision — via DeepLearning.AI on Coursera.</p>
+      </div>
+      <div class="rm-card">
+        <div class="rm-icon"><i data-lucide="calendar" style="width:18px;height:18px"></i></div>
+        <div class="rm-tag">Planned</div>
+        <h4>Google Data Analytics</h4>
+        <p>Industry certificate covering SQL, Tableau, R and the full data analytics workflow.</p>
+      </div>
+      <div class="rm-card">
+        <div class="rm-icon"><i data-lucide="cpu" style="width:18px;height:18px"></i></div>
+        <div class="rm-tag">Planned</div>
+        <h4>TensorFlow Developer</h4>
+        <p>Professional certification for building and deploying deep learning models with TensorFlow and Keras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section s-alt">
+  <div class="container" data-r>
+    <div class="cta-box">
+      <div><h2>Interested in working together?</h2><p>Let's connect and explore what we can build.</p></div>
+      <a href="index.html#contact" class="btn btn-gold"><i data-lucide="send" style="width:15px;height:15px"></i> Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">ASB<span>.</span></div>
+    <p class="footer-copy">© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const html=document.documentElement,tt=document.getElementById('themeToggle');
+html.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
+tt.addEventListener('click',()=>{const n=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n)});
+const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
+nt.addEventListener('click',()=>nb.classList.toggle('nav-open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nb.classList.remove('nav-open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+lucide.createIcons();
+</script>
+</body>
 </html>

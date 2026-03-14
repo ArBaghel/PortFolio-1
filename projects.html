@@ -1,167 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Data Consultant Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-content">
-        <div class="logo">Aditya Singh Baghel</div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Projects | Aditya Singh Baghel</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
 
-    <main>
-      <section class="hero" data-reveal>
-        <div class="container hero-content">
-          <div class="hero-text">
-            <p class="eyebrow">PROJECTS</p>
-            <h1>Machine Learning, Computer Vision &amp; Analytics Projects.</h1>
-            <p class="subtitle">
-              A selection of technical projects from my journey as an aspiring Data
-              Scientist, focused on Python, ML and data-driven decision making.
-            </p>
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <div class="logo">ASB<span class="dot">.</span><span class="sub">Data Scientist</span></div>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li><li><a href="certifications.html">Certifications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><i data-lucide="moon" style="width:16px;height:16px"></i></span>
+        <span class="icon-sun"><i data-lucide="sun" style="width:16px;height:16px"></i></span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="hex-bg" style="position:absolute;inset:0;z-index:0"></div>
+  <div class="ph-orb"></div>
+  <div class="container ph-c">
+    <div class="ew"><span class="el"></span>Projects</div>
+    <h1>ML, Vision, Analytics<br><span class="gt">&amp; More</span></h1>
+    <p>All hands-on projects grouped by domain. Filter by category to explore what interests you.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <button class="fb-btn active" data-filter="all">All <span class="fb-cnt" id="cnt-all">9</span></button>
+      <button class="fb-btn" data-filter="dashboard">
+        <i data-lucide="layout-dashboard" style="width:13px;height:13px"></i> Dashboard <span class="fb-cnt" id="cnt-dashboard">1</span>
+      </button>
+      <button class="fb-btn" data-filter="ml">
+        <i data-lucide="brain" style="width:13px;height:13px"></i> Machine Learning <span class="fb-cnt" id="cnt-ml">2</span>
+      </button>
+      <button class="fb-btn" data-filter="cv">
+        <i data-lucide="eye" style="width:13px;height:13px"></i> Computer Vision <span class="fb-cnt" id="cnt-cv">1</span>
+      </button>
+      <button class="fb-btn" data-filter="sql">
+        <i data-lucide="database" style="width:13px;height:13px"></i> SQL <span class="fb-cnt" id="cnt-sql">2</span>
+      </button>
+      <button class="fb-btn" data-filter="eda">
+        <i data-lucide="search" style="width:13px;height:13px"></i> EDA <span class="fb-cnt" id="cnt-eda">3</span>
+      </button>
+    </div>
+
+    <p class="result-lbl"><span id="resultCount">9</span> projects found</p>
+
+    <div class="proj-grid" id="projGrid">
+
+      <!-- 01 Dashboard -->
+      <div class="proj-item" data-cat="dashboard" data-r>
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(239,68,68,.13),rgba(124,58,237,.07))">
+          <i data-lucide="layout-dashboard" style="width:3rem;height:3rem;stroke:rgba(239,68,68,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-dash">Dashboard</span><span class="pi-num">01</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Power BI · SQL · DAX</div>
+          <div class="pi-title">Sales Analytics Dashboard</div>
+          <p class="pi-desc">Interactive Power BI dashboard visualizing KPIs, revenue trends and regional performance for e-commerce data — enabling real-time business decisions.</p>
+          <div class="pi-tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span></div>
+          <div class="pi-links">
+            <a href="https://github.com/ArBaghel" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a>
+            <a href="https://public.tableau.com/views/OnlineRetailDashboard_17697932511960/Dashboard1" class="pi-btn gold" target="_blank" rel="noopener"><i data-lucide="external-link" style="width:13px;height:13px"></i> Live</a>
           </div>
         </div>
-      </section>
-
-      <section class="section" data-reveal>
-        <div class="container">
-          <h2 class="section-title">Technical Projects</h2>
-          <p class="section-subtitle">
-            Projects that showcase my experience with Python, machine learning,
-            computer vision and exploratory data analysis.
-          </p>
-
-          <div class="cards-grid">
-            <article class="card project-card" data-reveal>
-              <p class="project-label">Python &middot; Computer Vision</p>
-              <h3>Real-time Object Detection (YOLOv8)</h3>
-              <p>
-                Implemented real-time object detection using YOLOv8 across images,
-                videos and webcam feeds, with optimized CPU/GPU inference.
-              </p>
-              <ul class="card-list">
-                <li>Draws bounding boxes and confidence scores for each detection.</li>
-                <li>Supports both offline media and live camera streams.</li>
-              </ul>
-              <a
-                href="https://github.com/ArBaghel/Object-Detection"
-                class="card-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View GitHub Repository →</a
-              >
-            </article>
-
-            <article class="card project-card" data-reveal>
-              <p class="project-label">Python &middot; Generative AI &middot; APIs</p>
-              <h3>WhatsApp AI Health Assistant Chatbot</h3>
-              <p>
-                Built an AI-powered health assistant that interacts over WhatsApp to
-                provide quick symptom checks and health information.
-              </p>
-              <ul class="card-list">
-                <li>Integrates external APIs and maps to locate nearby hospitals.</li>
-                <li>Designed for fast, accessible, user-friendly support.</li>
-              </ul>
-              <a
-                href="https://github.com/ArBaghel/Whatsapp-Health-Care-Bot"
-                class="card-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View GitHub Repository →</a
-              >
-            </article>
-
-            <article class="card project-card" data-reveal>
-              <p class="project-label">Python &middot; Data Analytics</p>
-              <h3>Exploratory Data Analytics Portfolio</h3>
-              <p>
-                A collection of EDA projects using Python and Jupyter Notebooks,
-                covering food, loans, Netflix titles and world population datasets.
-              </p>
-              <ul class="card-list">
-                <li>Includes data cleaning, visualization and insight generation.</li>
-                <li>Demonstrates data-driven decision making with real datasets.</li>
-              </ul>
-              <a
-                href="https://github.com/ArBaghel/Exploratory-Data-Analysis"
-                class="card-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                >View GitHub Repository →</a
-              >
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-content">
-        <p>© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
-        <nav>
-          <a href="index.html#home">Home</a>
-          <a href="about.html">About</a>
-          <a href="projects.html">Projects</a>
-          <a href="certifications.html">Certifications</a>
-          <a href="services.html">Services</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
       </div>
-    </footer>
 
-    <script>
-      const navbar = document.querySelector(".navbar");
-      const navToggle = document.querySelector(".nav-toggle");
+      <!-- 02 ML – Churn -->
+      <div class="proj-item" data-cat="ml" data-r data-d="1">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(124,58,237,.13),rgba(239,68,68,.06))">
+          <i data-lucide="brain" style="width:3rem;height:3rem;stroke:rgba(124,58,237,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-ml">Machine Learning</span><span class="pi-num">02</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Scikit-learn · Logistic Regression</div>
+          <div class="pi-title">Customer Churn Prediction</div>
+          <p class="pi-desc">ML model predicting customer churn using logistic regression and feature engineering on telecom data with high accuracy and F1 score.</p>
+          <div class="pi-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
 
-      if (navbar && navToggle) {
-        navToggle.addEventListener("click", () => {
-          navbar.classList.toggle("nav-open");
-        });
-      }
+      <!-- 03 CV – YOLOv8 -->
+      <div class="proj-item" data-cat="cv" data-r data-d="2">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(139,92,246,.14),rgba(99,102,241,.06))">
+          <i data-lucide="eye" style="width:3rem;height:3rem;stroke:rgba(139,92,246,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-cv">Computer Vision</span><span class="pi-num">03</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · YOLOv8 · OpenCV</div>
+          <div class="pi-title">Real-time Object Detection</div>
+          <p class="pi-desc">Real-time detection using YOLOv8 on images, videos and webcam feeds — bounding boxes, labels and confidence scores with optimized GPU inference.</p>
+          <div class="pi-tags"><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">PyTorch</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel/Object-Detection" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
 
-      const yearSpan = document.getElementById("year");
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
+      <!-- 04 ML – Health Bot -->
+      <div class="proj-item" data-cat="ml" data-r>
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(16,185,129,.06))">
+          <i data-lucide="heart-pulse" style="width:3rem;height:3rem;stroke:rgba(124,58,237,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-ml">Machine Learning</span><span class="pi-num">04</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Generative AI · WhatsApp API</div>
+          <div class="pi-title">WhatsApp AI Health Chatbot</div>
+          <p class="pi-desc">AI healthcare assistant over WhatsApp providing symptom checks, health info and nearby hospital recommendations using generative AI and external APIs.</p>
+          <div class="pi-tags"><span class="tag">Gen AI</span><span class="tag">Flask</span><span class="tag">APIs</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel/Whatsapp-Health-Care-Bot" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
 
-      // simple scroll reveal animations
-      const revealEls = document.querySelectorAll("[data-reveal]");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("reveal-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
+      <!-- 05 SQL – Ecommerce -->
+      <div class="proj-item" data-cat="sql" data-r data-d="1">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(16,185,129,.06))">
+          <i data-lucide="database" style="width:3rem;height:3rem;stroke:rgba(59,130,246,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-sql">SQL</span><span class="pi-num">05</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">MySQL · CTEs · Window Functions</div>
+          <div class="pi-title">E-commerce Sales SQL Analysis</div>
+          <p class="pi-desc">End-to-end SQL analysis using complex joins, window functions, CTEs and aggregations to uncover revenue patterns and customer behaviour.</p>
+          <div class="pi-tags"><span class="tag">MySQL</span><span class="tag">CTEs</span><span class="tag">Window Fns</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
 
-      revealEls.forEach((el) => observer.observe(el));
-    </script>
-  </body>
+      <!-- 06 EDA – Netflix -->
+      <div class="proj-item" data-cat="eda" data-r data-d="2">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(6,182,212,.06))">
+          <i data-lucide="film" style="width:3rem;height:3rem;stroke:rgba(16,185,129,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-eda">EDA</span><span class="pi-num">06</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Pandas · Seaborn</div>
+          <div class="pi-title">Netflix Content EDA</div>
+          <p class="pi-desc">Exploratory analysis of Netflix's catalog — content trends by year, country, genre distribution and release patterns with rich visualizations.</p>
+          <div class="pi-tags"><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">Plotly</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel/Exploratory-Data-Analysis" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
+
+      <!-- 07 EDA – World Pop -->
+      <div class="proj-item" data-cat="eda" data-r>
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(16,185,129,.11),rgba(34,197,94,.06))">
+          <i data-lucide="globe" style="width:3rem;height:3rem;stroke:rgba(16,185,129,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-eda">EDA</span><span class="pi-num">07</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Pandas · Matplotlib</div>
+          <div class="pi-title">World Population Analysis</div>
+          <p class="pi-desc">Comprehensive EDA on global population — growth trends by continent, density maps, fertility rates and country comparisons over decades.</p>
+          <div class="pi-tags"><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Jupyter</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel/Exploratory-Data-Analysis" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
+
+      <!-- 08 SQL – Loan -->
+      <div class="proj-item" data-cat="sql" data-r data-d="1">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(59,130,246,.11),rgba(124,58,237,.05))">
+          <i data-lucide="credit-card" style="width:3rem;height:3rem;stroke:rgba(59,130,246,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-sql">SQL</span><span class="pi-num">08</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">MySQL · Subqueries · Views</div>
+          <div class="pi-title">Loan Default SQL Analysis</div>
+          <p class="pi-desc">SQL-based analysis of loan application data to identify default risk patterns using subqueries, stored procedures and views for reusable reporting.</p>
+          <div class="pi-tags"><span class="tag">MySQL</span><span class="tag">Subqueries</span><span class="tag">Views</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
+
+      <!-- 09 EDA – Food -->
+      <div class="proj-item" data-cat="eda" data-r data-d="2">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(239,68,68,.05))">
+          <i data-lucide="utensils" style="width:3rem;height:3rem;stroke:rgba(124,58,237,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-eda">EDA</span><span class="pi-num">09</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Pandas · Seaborn</div>
+          <div class="pi-title">Food Trends EDA</div>
+          <p class="pi-desc">Exploratory analysis on food consumption trends — nutrition patterns, category breakdowns and regional food preferences with visual insights.</p>
+          <div class="pi-tags"><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">Jupyter</span></div>
+          <div class="pi-links"><a href="https://github.com/ArBaghel/Exploratory-Data-Analysis" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> Code</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section s-alt">
+  <div class="container" data-r>
+    <div class="cta-box">
+      <div><h2>Want to collaborate?</h2><p>I'm always open to interesting challenges and new ideas.</p></div>
+      <a href="index.html#contact" class="btn btn-gold"><i data-lucide="send" style="width:15px;height:15px"></i> Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">ASB<span>.</span></div>
+    <p class="footer-copy">© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const html=document.documentElement,tt=document.getElementById('themeToggle');
+html.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
+tt.addEventListener('click',()=>{const n=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n)});
+const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
+nt.addEventListener('click',()=>nb.classList.toggle('nav-open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nb.classList.remove('nav-open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+
+// Filter
+const items=document.querySelectorAll('.proj-item');
+const btns=document.querySelectorAll('.fb-btn');
+const rc=document.getElementById('resultCount');
+const counts={};
+items.forEach(i=>{const c=i.dataset.cat;counts[c]=(counts[c]||0)+1});
+document.querySelectorAll('[data-filter]').forEach(b=>{const badge=b.querySelector('.fb-cnt');if(!badge)return;const f=b.dataset.filter;badge.textContent=f==='all'?items.length:(counts[f]||0)});
+function filter(cat){let v=0;items.forEach(i=>{const m=cat==='all'||i.dataset.cat===cat;i.classList.toggle('hidden',!m);if(m)v++});rc.textContent=v;}
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  filter(b.dataset.filter);
+  document.querySelectorAll('.proj-item:not(.hidden)').forEach((it,i)=>{
+    it.style.transitionDelay=i*.04+'s';it.classList.remove('on');
+    setTimeout(()=>it.classList.add('on'),20+i*40);
+  });
+}));
+
+lucide.createIcons();
+</script>
+</body>
 </html>

@@ -1,288 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | Data Consultant Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-content">
-        <div class="logo">Aditya Singh Baghel</div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-        </button>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About | Aditya Singh Baghel</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    .story-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
+    .story-text p{font-size:.94rem;color:var(--tx2);margin-bottom:1rem;line-height:1.85}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+    .skill-card{background:var(--surf);border:1px solid var(--gb);border-radius:var(--rl);padding:1.75rem;position:relative;overflow:hidden}
+    .skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gd2)}
+    .skill-card h3{font-family:var(--fd);font-size:.9rem;font-weight:700;margin-bottom:1.25rem;color:var(--g1);text-transform:uppercase;letter-spacing:.1em}
+    .sk-row{margin-bottom:.9rem}
+    .sk-meta{display:flex;justify-content:space-between;font-size:.78rem;margin-bottom:.38rem}
+    .sk-name{color:var(--tx);font-weight:500}
+    .sk-pct{color:var(--g1);font-family:var(--fm);font-weight:600}
+    .sk-track{height:5px;background:var(--gb);border-radius:99px;overflow:hidden}
+    .sk-fill{height:100%;border-radius:99px;background:var(--gd2);width:0;transition:width 1.2s var(--ease)}
+    .sk-fill.animated{width:var(--w)}
+    .pill-cloud{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.6rem}
+    .skill-pill{display:inline-flex;align-items:center;padding:.3rem .8rem;border-radius:99px;font-size:.78rem;font-weight:500;background:var(--glass);border:1px solid var(--gb);color:var(--tx2);transition:all .22s var(--sp)}
+    .skill-pill:hover{background:rgba(124,58,237,.12);border-color:var(--g1);color:var(--g1);transform:translateY(-3px);box-shadow:0 5px 14px var(--glow)}
+    .approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+    .approach-card{background:var(--surf);border:1px solid var(--gb);border-radius:var(--r);padding:1.4rem;transition:transform .25s var(--sp),border-color .25s,box-shadow .25s}
+    .approach-card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.35);box-shadow:0 10px 28px var(--sh)}
+    .approach-card .ac-icon{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:11px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);margin-bottom:.75rem;color:var(--g1)}
+    .approach-card h4{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+    .approach-card p{font-size:.84rem;color:var(--tx2);line-height:1.7}
+    .timeline{position:relative;padding-left:1.75rem}
+    .timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--g1),transparent)}
+    .tl-item{position:relative;padding-bottom:1.75rem}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-dot{position:absolute;left:-1.75rem;top:4px;width:14px;height:14px;border-radius:50%;background:var(--g1);border:2px solid var(--bg);box-shadow:0 0 0 3px var(--glow)}
+    .tl-date{font-size:.72rem;font-family:var(--fm);color:var(--g1);font-weight:600;margin-bottom:.25rem;letter-spacing:.08em}
+    .tl-title{font-family:var(--fd);font-size:.95rem;font-weight:700;margin-bottom:.2rem}
+    .tl-sub{font-size:.84rem;color:var(--tx2)}
+    @media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:2rem}.skills-grid{grid-template-columns:1fr}.approach-grid{grid-template-columns:1fr}}
+    @media(max-width:640px){.story-grid{gap:1.5rem}[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}}
+  </style>
+</head>
+<body>
 
-    <main>
-      <!-- Page Hero -->
-      <section class="page-hero about-hero" data-reveal>
-        <div class="container">
-          <p class="eyebrow">ABOUT</p>
-          <h1 class="page-title">
-            Aspiring Data Scientist focused on Python, Machine Learning &amp; Computer Vision.
-          </h1>
-          <p class="page-subtitle">
-            I design data-driven solutions &mdash; from real-time object detection to AI chatbots
-            and exploratory data analysis projects.
-          </p>
-          <div class="about-hero-actions">
-            <a
-              href="Aditya%20resume.pdf"
-              class="btn primary"
-              download="Aditya_Singh_Baghel_CV.pdf"
-              >Download CV</a
-            >
-            <a
-              href="https://github.com/ArBaghel"
-              class="btn ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View GitHub</a
-            >
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <div class="logo">ASB<span class="dot">.</span><span class="sub">Data Scientist</span></div>
+    <nav><ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><i data-lucide="moon" style="width:16px;height:16px"></i></span>
+        <span class="icon-sun"><i data-lucide="sun" style="width:16px;height:16px"></i></span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="hex-bg" style="position:absolute;inset:0;z-index:0"></div>
+  <div class="ph-orb"></div>
+  <div class="container ph-c">
+    <div class="ew"><span class="el"></span>About</div>
+    <h1>Data Scientist focused on<br><span class="gt">Python, ML &amp; Vision</span></h1>
+    <p>I design real-world solutions — from object detection pipelines to AI chatbots and exploratory analytics that drive decisions.</p>
+    <div class="ph-actions">
+      <a href="Aditya%20resume.pdf" class="btn btn-gold" download="Aditya_CV.pdf">
+        <i data-lucide="download" style="width:15px;height:15px"></i> Download CV
+      </a>
+      <a href="https://github.com/ArBaghel" class="btn btn-outline" target="_blank" rel="noopener">
+        <i data-lucide="github" style="width:15px;height:15px"></i> View GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="section">
+  <div class="container">
+    <div class="story-grid" data-r>
+      <div>
+        <div class="ew"><span class="el"></span>My Story</div>
+        <h2 class="st">Who I Am <span class="ic" style="color:var(--g3)"><i data-lucide="user-round" style="width:1.1em;height:1.1em"></i></span></h2>
+        <p>I'm Aditya Singh Baghel, a B.Tech Computer Science student at SAGE University Bhopal with a deep passion for data science, machine learning, and intelligent system design.</p>
+        <p>I love solving real-world problems using Python, computer vision, and data-driven decision making — from YOLOv8-based object detection to AI healthcare chatbots over WhatsApp.</p>
+        <p>I've built strong foundations in data structures, algorithms, and practical ML workflows, always focused on measurable impact and clean, reproducible code.</p>
+        <div class="about-actions">
+          <a href="index.html#contact" class="btn btn-gold"><i data-lucide="send" style="width:15px;height:15px"></i> Get In Touch</a>
+          <a href="Aditya%20resume.pdf" class="btn btn-outline" download="Aditya_CV.pdf"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
+        </div>
+      </div>
+      <div class="about-photo-wrap">
+        <div class="hex-avatar">
+          <div class="hex-inner">
+            <i data-lucide="code-2" style="width:80px;height:80px;stroke:var(--g3);stroke-width:1.5"></i>
           </div>
         </div>
-      </section>
+        <div class="float-badge fb-1">
+          <div><div class="fb-val">9+</div><div class="fb-lbl">Projects</div></div>
+          <span style="color:var(--g3)"><i data-lucide="rocket" style="width:22px;height:22px"></i></span>
+        </div>
+        <div class="float-badge fb-2">
+          <div><div class="fb-val">2</div><div class="fb-lbl">Awards</div></div>
+          <span style="color:var(--g1)"><i data-lucide="medal" style="width:22px;height:22px"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- My Story -->
-      <section class="section" data-reveal>
-        <div class="container about-story-grid">
-          <div class="about-story-text">
-            <h2 class="section-title">My Story 👨‍💻</h2>
-            <p>
-              I'm Aditya Singh Baghel, an aspiring Data Scientist currently pursuing
-              B.Tech in Computer Science Engineering at SAGE University Bhopal.
-            </p>
-            <p>
-              I love solving real-world problems with Python, machine learning and
-              computer vision &mdash; from YOLOv8-based object detection systems to AI
-              healthcare chatbots.
-            </p>
-            <p>
-              I've built strong foundations in data structures, algorithms and
-              data-driven decision making. 
-            </p>
+<!-- Skills -->
+<section class="section s-alt">
+  <div class="container" data-r>
+    <div class="sh">
+      <div class="ew"><span class="el"></span>Skills</div>
+      <h2 class="st">Technical Expertise <span class="ic" style="color:var(--g1)"><i data-lucide="brain" style="width:1.1em;height:1.1em"></i></span></h2>
+      <p class="ss">A blend of technical depth and practical experience across the data science stack.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Core Proficiency</h3>
+        <div class="sk-row">
+          <div class="sk-meta"><span class="sk-name">Python</span><span class="sk-pct">92%</span></div>
+          <div class="sk-track"><div class="sk-fill" style="--w:92%" data-skill></div></div>
+        </div>
+        <div class="sk-row">
+          <div class="sk-meta"><span class="sk-name">Machine Learning</span><span class="sk-pct">87%</span></div>
+          <div class="sk-track"><div class="sk-fill" style="--w:87%" data-skill></div></div>
+        </div>
+        <div class="sk-row">
+          <div class="sk-meta"><span class="sk-name">Computer Vision</span><span class="sk-pct">90%</span></div>
+          <div class="sk-track"><div class="sk-fill" style="--w:90%" data-skill></div></div>
+        </div>
+        <div class="sk-row">
+          <div class="sk-meta"><span class="sk-name">Data Analytics / EDA</span><span class="sk-pct">85%</span></div>
+          <div class="sk-track"><div class="sk-fill" style="--w:85%" data-skill></div></div>
+        </div>
+        <div class="sk-row">
+          <div class="sk-meta"><span class="sk-name">SQL &amp; Databases</span><span class="sk-pct">80%</span></div>
+          <div class="sk-track"><div class="sk-fill" style="--w:80%" data-skill></div></div>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Technologies</h3>
+        <div class="pill-cloud">
+          <span class="skill-pill">Python</span><span class="skill-pill">C++</span><span class="skill-pill">YOLOv8</span>
+          <span class="skill-pill">OpenCV</span><span class="skill-pill">PyTorch</span><span class="skill-pill">Scikit-learn</span>
+          <span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span class="skill-pill">Seaborn</span>
+          <span class="skill-pill">Matplotlib</span><span class="skill-pill">MySQL</span><span class="skill-pill">Power BI</span>
+          <span class="skill-pill">PySpark</span><span class="skill-pill">Flask</span><span class="skill-pill">Jupyter</span>
+          <span class="skill-pill">Git</span>
+        </div>
+        <div style="margin-top:1.25rem">
+          <h3 style="margin-bottom:.75rem">Soft Skills</h3>
+          <div class="pill-cloud">
+            <span class="skill-pill">Critical Thinking</span><span class="skill-pill">Communication</span>
+            <span class="skill-pill">Teamwork</span><span class="skill-pill">Adaptability</span>
+            <span class="skill-pill">Problem Solving</span>
           </div>
-          <div class="about-story-media">
-            <div class="about-photo-card">
-              <img
-                src="#"
-                alt="Aditya"
-              />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What I Do -->
+<section class="section">
+  <div class="container" data-r>
+    <div class="sh">
+      <div class="ew"><span class="el"></span>What I Do</div>
+      <h2 class="st">Areas of Expertise <span class="ic" style="color:var(--g3)"><i data-lucide="rocket" style="width:1.1em;height:1.1em"></i></span></h2>
+      <p class="ss">Building working solutions across ML, computer vision, and analytics.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem">
+      <div class="card card-accent">
+        <div style="width:42px;height:42px;border-radius:11px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.25);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:#8b5cf6">
+          <i data-lucide="eye" style="width:20px;height:20px"></i>
+        </div>
+        <div class="card-tag" style="font-size:.7rem;font-weight:700;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-family:var(--fm)">Computer Vision</div>
+        <h3 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.5rem">Object Detection (YOLOv8)</h3>
+        <p style="font-size:.875rem;color:var(--tx2);line-height:1.75">Real-time detection across images, videos and webcam feeds with optimized CPU/GPU inference pipelines and bounding-box visualizations.</p>
+      </div>
+      <div class="card card-accent">
+        <div style="width:42px;height:42px;border-radius:11px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:var(--g1)">
+          <i data-lucide="bot" style="width:20px;height:20px"></i>
+        </div>
+        <div class="card-tag" style="font-size:.7rem;font-weight:700;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-family:var(--fm)">Generative AI · APIs</div>
+        <h3 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.5rem">AI Health Chatbot</h3>
+        <p style="font-size:.875rem;color:var(--tx2);line-height:1.75">Generative-AI powered healthcare chatbot over WhatsApp for instant symptom checks, health info, and nearby hospital recommendations.</p>
+      </div>
+      <div class="card card-accent">
+        <div style="width:42px;height:42px;border-radius:11px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.2);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:var(--g3)">
+          <i data-lucide="search" style="width:20px;height:20px"></i>
+        </div>
+        <div class="card-tag" style="font-size:.7rem;font-weight:700;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-family:var(--fm)">Data Analytics</div>
+        <h3 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.5rem">Exploratory Data Analysis</h3>
+        <p style="font-size:.875rem;color:var(--tx2);line-height:1.75">End-to-end EDA notebooks on food, loans, Netflix &amp; world population datasets — data cleaning, visualization, and actionable insights.</p>
+      </div>
+      <div class="card card-accent">
+        <div style="width:42px;height:42px;border-radius:11px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;color:#3b82f6">
+          <i data-lucide="database" style="width:20px;height:20px"></i>
+        </div>
+        <div class="card-tag" style="font-size:.7rem;font-weight:700;color:var(--g1);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-family:var(--fm)">Algorithms</div>
+        <h3 style="font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.5rem">DSA &amp; Problem Solving</h3>
+        <p style="font-size:.875rem;color:var(--tx2);line-height:1.75">Applying data structures, algorithms, and dynamic programming with Big O analysis to build efficient, optimized solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Approach -->
+<section class="section s-alt">
+  <div class="container" data-r>
+    <div class="sh">
+      <div class="ew"><span class="el"></span>My Approach</div>
+      <h2 class="st">How I Work <span class="ic" style="color:var(--g1)"><i data-lucide="target" style="width:1.1em;height:1.1em"></i></span></h2>
+      <p class="ss">Every project is built around clarity, accuracy, and measurable impact.</p>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="ac-icon"><i data-lucide="zap" style="width:20px;height:20px"></i></div>
+        <h4>Fast Execution</h4>
+        <p>I build and iterate quickly — from prototype to working solution, focused on delivering real value fast without sacrificing quality.</p>
+      </div>
+      <div class="approach-card">
+        <div class="ac-icon"><i data-lucide="bar-chart-2" style="width:20px;height:20px"></i></div>
+        <h4>Data-Driven</h4>
+        <p>I let data tell the story. Every analysis is backed by clear methods, transparent assumptions, and reproducible code.</p>
+      </div>
+      <div class="approach-card">
+        <div class="ac-icon"><i data-lucide="target" style="width:20px;height:20px"></i></div>
+        <h4>Outcome Focused</h4>
+        <p>I focus on actual business outcomes — not just technical metrics — ensuring every insight is actionable and stakeholder-ready.</p>
+      </div>
+      <div class="approach-card">
+        <div class="ac-icon"><i data-lucide="message-circle" style="width:20px;height:20px"></i></div>
+        <h4>Clear Communication</h4>
+        <p>I translate complex findings into language that stakeholders can understand and act on with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education / Timeline -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" data-r>
+      <div>
+        <div class="ew"><span class="el"></span>Education</div>
+        <h2 class="st" style="margin-bottom:1.75rem">Academic Journey <span class="ic" style="color:var(--g1)"><i data-lucide="graduation-cap" style="width:1.1em;height:1.1em"></i></span></h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">2022 – Present</div>
+            <div class="tl-title">B.Tech — Computer Science Engineering</div>
+            <div class="tl-sub">SAGE University, Bhopal</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Oct 2025</div>
+            <div class="tl-title">Machine Learning Specialization</div>
+            <div class="tl-sub">Stanford Online · Coursera</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Sep 2025</div>
+            <div class="tl-title">Introduction to SQL</div>
+            <div class="tl-sub">University of Michigan · Coursera</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ew"><span class="el"></span>Achievements</div>
+        <h2 class="st" style="margin-bottom:1.75rem">Recognition <span class="ic" style="color:var(--g1)"><i data-lucide="trophy" style="width:1.1em;height:1.1em"></i></span></h2>
+        <div class="ach-grid" style="grid-template-columns:1fr;gap:1rem">
+          <div class="ach-card">
+            <div class="ach-icon"><i data-lucide="medal" style="width:20px;height:20px"></i></div>
+            <div class="ach-info">
+              <h4>Student of the Year</h4>
+              <p>Won the Student of the Year title at Sunstone Bhopal — recognizing exceptional critical thinking and analytical performance.</p>
+            </div>
+          </div>
+          <div class="ach-card">
+            <div class="ach-icon"><i data-lucide="trophy" style="width:20px;height:20px"></i></div>
+            <div class="ach-info">
+              <h4>Intra-College Cricket Champion</h4>
+              <p>Secured victory in intra-college cricket at Sunstone Bhopal, demonstrating teamwork, strategy, and leadership under pressure.</p>
             </div>
           </div>
         </div>
-      </section>
-
-      <!-- What I Do -->
-      <section class="section section-alt" data-reveal>
-        <div class="container">
-          <h2 class="section-title">What I Do 🚀</h2>
-          <p class="section-subtitle">
-            I turn ideas into working prototypes across machine learning, computer
-            vision and data analytics.
-          </p>
-
-          <div class="about-cards-grid">
-            <article class="card">
-              <h3>Object Detection</h3>
-              <p>
-                Real-time object detection with YOLOv8 on images, videos and webcam
-                feeds, including optimized CPU/GPU inference and clear bounding-box
-                visualizations.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>AI Health Assistant Chatbot</h3>
-              <p>
-                Generative-AI powered chatbot for healthcare support over WhatsApp,
-                providing instant symptom checks, health information and nearby
-                hospital recommendations.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Exploratory Data Analytics</h3>
-              <p>
-                Collections of EDA notebooks on datasets like food, loans, Netflix
-                titles and world population, focused on cleaning, visualization and
-                actionable insights.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Problem Solving &amp; DSA</h3>
-              <p>
-                Applying data structures, algorithms, recursion and dynamic
-                programming to write efficient solutions backed by Big O analysis.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="section" data-reveal>
-        <div class="container">
-          <h2 class="section-title">Skills 🧠</h2>
-          <p class="section-subtitle">
-            A mix of hard technical skills and soft skills that help me collaborate
-            and deliver.
-          </p>
-
-          <div class="skills-grid">
-            <article class="card">
-              <h3>Hard Skills</h3>
-              <div class="skills-pill-group">
-                <span class="pill">Python</span>
-                <span class="pill">C++</span>
-                <span class="pill">Supervised Learning</span>
-                <span class="pill">Computer Vision</span>
-                <span class="pill">Data-Driven Decision Making</span>
-                <span class="pill">Big Data Processing</span>
-                <span class="pill">Data Modeling</span>
-                <span class="pill">MySQL</span>
-                <span class="pill">Power BI</span>
-              </div>
-            </article>
-
-            <article class="card">
-              <h3>Soft Skills</h3>
-              <div class="skills-pill-group">
-                <span class="pill">Communication</span>
-                <span class="pill">Critical Thinking</span>
-                <span class="pill">Teamwork</span>
-                <span class="pill">Problem Solving</span>
-                <span class="pill">Team Collaboration</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- My Approach -->
-      <section class="section section-alt" data-reveal>
-        <div class="container">
-          <h2 class="section-title">My Approach 🎯</h2>
-          <p class="section-subtitle">
-            Every project is built around clarity, accuracy, and measurable impact.
-          </p>
-
-          <div class="approach-grid">
-            <article class="card">
-              <h3>Data-Driven</h3>
-              <p>
-                I let data tell the story. Every analysis is backed by clear methods
-                and transparent assumptions.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Accuracy Focused</h3>
-              <p>
-                I pay attention to details in cleaning, modeling, and validation so
-                that recommendations are trustworthy.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Business Mindset</h3>
-              <p>
-                I bridge the gap between technical analysis and business needs,
-                focusing on outcomes, not just metrics.
-              </p>
-            </article>
-
-            <article class="card">
-              <h3>Impact Oriented</h3>
-              <p>
-                I aim for work that creates measurable business impact: better
-                decisions, clearer reporting, and smarter strategies.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="section" data-reveal>
-        <div class="container">
-          <div class="cta-banner">
-            <div>
-              <h2>Let's Work Together</h2>
-              <p>Ready to start your next data project or collaboration?</p>
-            </div>
-            <a href="index.html#contact" class="btn primary">Get In Touch</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer-content">
-        <p>© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
-        <nav>
-          <a href="index.html#home">Home</a>
-          <a href="about.html">About</a>
-          <a href="projects.html">Projects</a>
-          <a href="certifications.html">Certifications</a>
-          <a href="services.html">Services</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
       </div>
-    </footer>
+    </div>
+  </div>
+</section>
 
-    <script>
-      const navbar = document.querySelector(".navbar");
-      const navToggle = document.querySelector(".nav-toggle");
+<!-- CTA -->
+<section class="section s-alt">
+  <div class="container" data-r>
+    <div class="cta-box">
+      <div><h2>Let's Work Together</h2><p>Ready to start your next data project or collaboration?</p></div>
+      <a href="index.html#contact" class="btn btn-gold"><i data-lucide="send" style="width:15px;height:15px"></i> Get In Touch</a>
+    </div>
+  </div>
+</section>
 
-      if (navbar && navToggle) {
-        navToggle.addEventListener("click", () => {
-          navbar.classList.toggle("nav-open");
-        });
-      }
+</main>
 
-      const yearSpan = document.getElementById("year");
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">ASB<span>.</span></div>
+    <p class="footer-copy">© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
 
-      // simple scroll reveal animations
-      const revealEls = document.querySelectorAll("[data-reveal]");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("reveal-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-
-      revealEls.forEach((el) => observer.observe(el));
-    </script>
-  </body>
+<script>
+const html=document.documentElement,tt=document.getElementById('themeToggle');
+html.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
+tt.addEventListener('click',()=>{const n=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n)});
+const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
+window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
+nt.addEventListener('click',()=>nb.classList.toggle('nav-open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nb.classList.remove('nav-open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animated');so.unobserve(e.target)}})},{threshold:.3});
+document.querySelectorAll('[data-skill]').forEach(el=>so.observe(el));
+lucide.createIcons();
+</script>
+</body>
 </html>

@@ -1,280 +1,555 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Consultant Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container nav-content">
-        <div class="logo">Aditya Singh Baghel</div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
-          <span class="nav-toggle-bar"></span>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Aditya Singh Baghel | Data Scientist</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<!-- ── NAVBAR ───────────────────────────────────────────── -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <div class="logo">
+      ASB<span class="dot">.</span>
+      <span class="sub">Data Scientist</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><i data-lucide="moon" style="width:16px;height:16px"></i></span>
+        <span class="icon-sun"><i data-lucide="sun" style="width:16px;height:16px"></i></span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ HERO ════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <canvas id="neuralCanvas"></canvas>
+  <div class="hero-hex"><div class="hex-bg"></div></div>
+  <div class="hero-orbs">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+  </div>
+  <div class="data-stream" id="dataStream"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- LEFT -->
+      <div>
+        <div class="term-badge">
+          <span class="prompt">$</span>
+          <span>python aditya.py</span>
+          <span class="cursor"></span>
+        </div>
+
+        <h1 class="hero-title">
+          Turning Raw Data<br>
+          <span class="line-gold">Into Intelligence</span>
+        </h1>
+
+        <div class="typewriter-wrap">
+          <span class="tw-prompt">&gt;&gt;&gt;</span>
+          <span id="tw"></span>
+          <span class="tw-cursor"></span>
+        </div>
+
+        <p class="hero-desc">
+          Aspiring Data Scientist building real-world ML models, computer vision
+          systems &amp; AI applications — from YOLOv8 object detection to WhatsApp
+          health chatbots and deep exploratory analytics.
+        </p>
+
+        <div class="hero-actions">
+          <a href="projects.html" class="btn btn-gold">
+            <i data-lucide="layout-grid" style="width:15px;height:15px"></i> Explore Projects
+          </a>
+          <a href="Aditya%20resume.pdf" class="btn btn-outline" download="Aditya_CV.pdf">
+            <i data-lucide="download" style="width:15px;height:15px"></i> Download CV
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="s-num" data-count="9">0</div>
+            <div class="s-lbl">Projects</div>
+          </div>
+          <div>
+            <div class="s-num" data-count="2">0</div>
+            <div class="s-lbl">Certs</div>
+          </div>
+          <div>
+            <div class="s-num" data-count="10">0</div>
+            <div class="s-lbl">Technologies</div>
+          </div>
+          <div>
+            <div class="s-num" data-count="2">0</div>
+            <div class="s-lbl">Awards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="hero-panel">
+        <!-- Data viz card -->
+        <div class="dv-card">
+          <div class="dv-header">
+            <span class="dv-title">model_accuracy.json</span>
+            <span class="dv-live"><span class="dv-dot"></span>live</span>
+          </div>
+          <!-- Mini bar chart -->
+          <div class="mini-chart">
+            <div class="mc-bar" style="height:55%;--w:55%"></div>
+            <div class="mc-bar" style="height:72%;--w:72%"></div>
+            <div class="mc-bar" style="height:48%;--w:48%"></div>
+            <div class="mc-bar" style="height:88%;--w:88%"></div>
+            <div class="mc-bar" style="height:65%;--w:65%"></div>
+            <div class="mc-bar" style="height:91%;--w:91%"></div>
+            <div class="mc-bar" style="height:76%;--w:76%"></div>
+            <div class="mc-bar" style="height:82%;--w:82%"></div>
+            <div class="mc-bar" style="height:94%;--w:94%"></div>
+          </div>
+          <!-- Skill bars -->
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Computer Vision</span><span class="skill-pct">92%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:92%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Machine Learning</span><span class="skill-pct">87%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:87%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Data Analytics</span><span class="skill-pct">85%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:85%"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">SQL &amp; Databases</span><span class="skill-pct">80%</span></div>
+            <div class="skill-track"><div class="skill-fill" style="--w:80%"></div></div>
+          </div>
+        </div>
+
+        <!-- Topics card -->
+        <div class="info-card card">
+          <div class="info-item">
+            <div class="ii-icon"><i data-lucide="trending-up" style="width:18px;height:18px"></i></div>
+            Data analytics &amp; business intelligence
+          </div>
+          <div class="info-item">
+            <div class="ii-icon"><i data-lucide="bot" style="width:18px;height:18px"></i></div>
+            Building AI-powered applications
+          </div>
+          <div class="info-item">
+            <div class="ii-icon"><i data-lucide="rocket" style="width:18px;height:18px"></i></div>
+            Career paths into ML &amp; data roles
+          </div>
+          <div class="info-item">
+            <div class="ii-icon"><i data-lucide="lightbulb" style="width:18px;height:18px"></i></div>
+            Data strategy for startups &amp; teams
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT STRIP ══════════════════════════════════════════ -->
+<section class="section s-alt" id="about-strip">
+  <div class="container">
+    <div class="about-grid" data-r>
+      <div>
+        <div class="ew"><span class="el"></span>About Me</div>
+        <h2 class="st">Hi, I'm Aditya <span class="ic ic-lg" style="color:var(--g3)"><i data-lucide="hand-metal" style="width:1.3em;height:1.3em"></i></span></h2>
+        <p class="about-text" style="font-size:.94rem;color:var(--tx2);margin-bottom:1rem;line-height:1.85">
+          I'm a B.Tech Computer Science student at SAGE University Bhopal with a deep passion
+          for data science, machine learning, and intelligent system design.
+        </p>
+        <p style="font-size:.94rem;color:var(--tx2);margin-bottom:1rem;line-height:1.85">
+          I build real-world solutions — from YOLOv8 object detection pipelines to
+          AI healthcare chatbots and exploratory analytics dashboards.
+        </p>
+        <div class="about-actions">
+          <a href="about.html" class="btn btn-gold"><i data-lucide="user" style="width:15px;height:15px"></i> Learn More</a>
+          <a href="Aditya%20resume.pdf" class="btn btn-outline" download="Aditya_CV.pdf"><i data-lucide="download" style="width:15px;height:15px"></i> Download CV</a>
+        </div>
+        <div class="about-cards">
+          <div class="about-mini">
+            <h4>Hard Skills</h4>
+            <ul>
+              <li>Python, YOLOv8, OpenCV</li>
+              <li>Scikit-learn, PyTorch</li>
+              <li>MySQL, Power BI</li>
+              <li>PySpark, Pandas</li>
+            </ul>
+          </div>
+          <div class="about-mini">
+            <h4>Focus Areas</h4>
+            <ul>
+              <li>Computer Vision</li>
+              <li>Machine Learning</li>
+              <li>Data Analytics / EDA</li>
+              <li>Generative AI &amp; APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-photo-wrap">
+        <div class="hex-avatar">
+          <div class="hex-inner">
+            <i data-lucide="code-2" style="width:80px;height:80px;stroke:var(--g3);stroke-width:1.5"></i>
+          </div>
+        </div>
+        <div class="float-badge fb-1">
+          <div>
+            <div class="fb-val">9+</div>
+            <div class="fb-lbl">Projects</div>
+          </div>
+          <span style="color:var(--g3)"><i data-lucide="rocket" style="width:22px;height:22px"></i></span>
+        </div>
+        <div class="float-badge fb-2">
+          <div>
+            <div class="fb-val">2</div>
+            <div class="fb-lbl">Awards</div>
+          </div>
+          <span style="color:var(--g1)"><i data-lucide="medal" style="width:22px;height:22px"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURED PROJECTS ════════════════════════════════════ -->
+<section class="section" id="projects-home">
+  <div class="container">
+    <div class="sh" data-r>
+      <div class="ew"><span class="el"></span>My Work</div>
+      <h2 class="st">Featured Projects</h2>
+      <p class="ss">Hands-on ML and data science projects solving real-world problems.</p>
+    </div>
+
+    <div class="proj-grid">
+      <div class="proj-item" data-r>
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(139,92,246,.14),rgba(99,102,241,.06))">
+          <i data-lucide="eye" style="width:3rem;height:3rem;stroke:rgba(139,92,246,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-cv">Computer Vision</span>
+          <span class="pi-num">01</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · YOLOv8 · OpenCV</div>
+          <div class="pi-title">Real-time Object Detection</div>
+          <p class="pi-desc">Real-time detection across images, videos and webcam feeds with optimized CPU/GPU inference, bounding boxes and confidence scores.</p>
+          <div class="pi-tags">
+            <span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">PyTorch</span>
+          </div>
+          <div class="pi-links">
+            <a href="https://github.com/ArBaghel/Object-Detection" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item" data-r data-d="1">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(99,102,241,.06))">
+          <i data-lucide="heart-pulse" style="width:3rem;height:3rem;stroke:rgba(124,58,237,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-ml">Machine Learning</span>
+          <span class="pi-num">02</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Generative AI · WhatsApp API</div>
+          <div class="pi-title">WhatsApp AI Health Chatbot</div>
+          <p class="pi-desc">AI healthcare assistant over WhatsApp for symptom checks, health info and nearby hospital recommendations powered by generative AI.</p>
+          <div class="pi-tags">
+            <span class="tag">Gen AI</span><span class="tag">Flask</span><span class="tag">APIs</span>
+          </div>
+          <div class="pi-links">
+            <a href="https://github.com/ArBaghel/Whatsapp-Health-Care-Bot" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> GitHub →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item" data-r data-d="2">
+        <div class="pi-thumb" style="background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(6,182,212,.06))">
+          <i data-lucide="search" style="width:3rem;height:3rem;stroke:rgba(16,185,129,.8);stroke-width:1.5"></i>
+          <span class="pi-cat cat-eda">EDA</span>
+          <span class="pi-num">03</span>
+        </div>
+        <div class="pi-body">
+          <div class="pi-type">Python · Pandas · Seaborn</div>
+          <div class="pi-title">Exploratory Data Analysis Portfolio</div>
+          <p class="pi-desc">EDA on food, loans, Netflix &amp; world population — data cleaning, visualization and actionable insight generation.</p>
+          <div class="pi-tags">
+            <span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">Plotly</span>
+          </div>
+          <div class="pi-links">
+            <a href="https://github.com/ArBaghel/Exploratory-Data-Analysis" class="pi-btn" target="_blank" rel="noopener"><i data-lucide="github" style="width:13px;height:13px"></i> GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem" data-r>
+      <a href="projects.html" class="btn btn-outline"><i data-lucide="arrow-right" style="width:15px;height:15px"></i> View All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══════════════════════════════════════ -->
+<section class="section s-alt" id="certs">
+  <div class="container">
+    <div class="sh" data-r>
+      <div class="ew"><span class="el"></span>Credentials</div>
+      <h2 class="st">Professional Certifications</h2>
+      <p class="ss">Industry-recognized credentials validating my skills in ML and analytics.</p>
+    </div>
+    <div class="cert-grid" data-r>
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-badge">Specialization · 3 Courses · Stanford</span>
+          <img src="Certificates/ML.png" alt="Machine Learning Specialization" loading="lazy"/>
+        </div>
+        <div class="cert-body">
+          <div class="cert-meta">Stanford Online · Coursera · Oct 2025</div>
+          <div class="cert-title">Machine Learning Specialization</div>
+          <p class="cert-desc">Andrew Ng's flagship ML program — supervised &amp; unsupervised learning, neural networks, and practical workflows.</p>
+          <a href="https://www.coursera.org/account/accomplishments/specialization/5YB5S999GR5F" class="cert-cta" target="_blank" rel="noopener">View Credential <i data-lucide="arrow-right" style="width:13px;height:13px"></i></a>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img">
+          <span class="cert-badge">Certification · University of Michigan</span>
+          <img src="Certificates/SQL.png" alt="Introduction to SQL" loading="lazy"/>
+        </div>
+        <div class="cert-body">
+          <div class="cert-meta">University of Michigan · Coursera · Sep 2025</div>
+          <div class="cert-title">Introduction to SQL</div>
+          <p class="cert-desc">SQL queries, joins, aggregations and analytical reporting — foundational for any data professional.</p>
+          <a href="https://www.coursera.org/account/accomplishments/verify/9OSJH07RJLJA" class="cert-cta" target="_blank" rel="noopener">View Credential <i data-lucide="arrow-right" style="width:13px;height:13px"></i></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" data-r>
+      <a href="certifications.html" class="btn btn-outline">All Certifications <i data-lucide="arrow-right" style="width:15px;height:15px"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ══════════════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid" data-r>
+      <div>
+        <div class="ew"><span class="el"></span>Get in Touch</div>
+        <h2 class="st">Let's Work Together <span class="ic" style="color:var(--g3)"><i data-lucide="mail" style="width:1.2em;height:1.2em"></i></span></h2>
+        <p class="contact-desc">Open to consulting, collaboration, and speaking engagements. Fill in the form and I'll get back to you quickly.</p>
+        <ul class="ci-list">
+          <li>
+            <div class="ci-ico"><i data-lucide="mail" style="width:16px;height:16px"></i></div>
+            <strong>Email</strong>
+            <a href="mailto:adityasinghbaghel678@gmail.com">adityasinghbaghel678@gmail.com</a>
+          </li>
+          <li>
+            <div class="ci-ico"><i data-lucide="phone" style="width:16px;height:16px"></i></div>
+            <strong>Phone</strong>+91 9340846607
+          </li>
+        </ul>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/aditya-singh-baghel-562832296" class="soc soc-li" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://github.com/ArBaghel" class="soc soc-gh" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/ar_baghel04" class="soc soc-ig" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+          <a href="https://x.com/ArbaghelRb" class="soc soc-tw" target="_blank" rel="noopener" aria-label="Twitter">𝕏</a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" placeholder="John" required/>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Doe" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="john@example.com" required/>
+        </div>
+        <div class="form-group">
+          <label for="requestType">Type of Request</label>
+          <select id="requestType" name="requestType" required>
+            <option value="" disabled selected>Choose an option</option>
+            <option value="consulting">Consulting</option>
+            <option value="speaking">Speaking</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" id="submitBtn" style="width:100%;justify-content:center;">
+          <i data-lucide="send" style="width:15px;height:15px"></i> Send Request
         </button>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <main>
-      <!-- Hero -->
-      <section id="home" class="hero" data-reveal>
-        <div class="container hero-content">
-          <div class="hero-text">
-            <p class="eyebrow">DATA SCIENTIST</p>
-            <p class="hero-tag">👨‍💻 Aspiring Data Scientist from Bhopal, India</p>
-            <h1>I build intelligent solutions with Python, ML &amp; Computer Vision.</h1>
-            <p class="subtitle">
-              I work with machine learning, computer vision and data-driven decision making
-              to turn raw data into practical insights and smart applications.
-            </p>
-            <div class="hero-actions">
-              <a href="services.html#consulting" class="btn primary">Request Consulting</a>
-              <a href="services.html#speaking" class="btn ghost">Book for Speaking</a>
-            </div>
-          </div>
+</main>
 
-          <div class="hero-card talk-card">
-            <div class="talk-header">
-              <div class="talk-avatars">
-                <div class="avatar-badge avatar-ml"><span>🤖</span></div>
-                <div class="avatar-badge avatar-da"><span>📊</span></div>
-                <div class="avatar-badge avatar-cv"><span>👁️</span></div>
-              </div>
-              <h2>🎙️ What I talk about</h2>
-            </div>
-            <ul>
-              <li>Data analytics &amp; business intelligence</li>
-              <li>Career paths into data roles</li>
-              <li>Data strategy for startups</li>
-              <li>Building a data-driven culture</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">ASB<span>.</span></div>
+    <p class="footer-copy">© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
 
-      <!-- About -->
-      <section id="about" class="section" data-reveal>
-        <div class="container about-grid">
-          <div>
-            <h2 class="section-title">About me 👋</h2>
-            <p>
-              I'm a data professional who helps people break into analytics and
-              helps companies actually use their data. I combine hands-on
-              experience with clear, practical teaching.
-            </p>
-            <p>
-              After starting my career with no clear roadmap, I learned what works
-              and what doesn't the hard way. Now I share that experience through
-              consulting, speaking, and online content.
-            </p>
-            <div class="about-actions">
-              <a href="about.html" class="btn primary">Learn More About Me</a>
-              <a
-                href="Aditya%20resume.pdf"
-                class="btn ghost"
-                download="Aditya_Singh_Baghel_CV.pdf"
-                >Download CV</a
-              >
-            </div>
-          </div>
-          <div class="about-highlight">
-            <h3>Topics I focus on</h3>
-            <ul>
-              <li>SQL, spreadsheets & dashboarding</li>
-              <li>Data storytelling for stakeholders</li>
-              <li>Breaking into data careers</li>
-              <li>Building analytics from zero to one</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+<script>
+/* ── Theme ─────────────────────────────────────────────── */
+const html = document.documentElement;
+const tt   = document.getElementById('themeToggle');
+html.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+tt.addEventListener('click', () => {
+  const n = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', n);
+  localStorage.setItem('theme', n);
+});
 
-      <!-- Contact -->
-      <section id="contact" class="section" data-reveal>
-        <div class="container contact-grid">
-          <div>
-            <h2 class="section-title">Send a request ✉️</h2>
-            <p>
-              Share a bit about what you're looking for. I'll review your message
-              and get back to you as soon as I can.
-            </p>
-            <ul class="contact-info">
-              <li><strong>Email:</strong> adityabharadwaj22.08@gmail.com</li>
-              <li><strong>Phone:</strong> +91 9340846607</li>
-            </ul>
-            <div class="contact-social">
-              <span class="contact-social-label">Connect:</span>
-              <div class="social-links">
-                <a
-                  href="https://www.linkedin.com/in/aditya-singh-baghel-562832296"
-                  class="social-icon linkedin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn profile"
-                >
-                  in.
-                </a>
-                <a
-                  href="https://www.instagram.com/ar_baghel04?igsh=MWhua2N0Z3dmbzdqbg=="
-                  class="social-icon instagram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram profile"
-                >
-                  Ins.
-                </a>
-                <a
-                  href="https://x.com/ArbaghelRb"
-                  class="social-icon twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter (X) profile"
-                >
-                  X.
-                </a>
-              </div>
-            </div>
-          </div>
+/* ── Navbar ─────────────────────────────────────────────── */
+const nb = document.getElementById('navbar');
+const nt = document.getElementById('navToggle');
+window.addEventListener('scroll', () => nb.classList.toggle('scrolled', window.scrollY > 30));
+nt.addEventListener('click', () => nb.classList.toggle('nav-open'));
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nb.classList.remove('nav-open')));
+document.getElementById('year').textContent = new Date().getFullYear();
 
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input id="firstName" name="firstName" type="text" required />
-              </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input id="lastName" name="lastName" type="text" required />
-              </div>
-            </div>
+/* ── Scroll Reveal ─────────────────────────────────────── */
+const ro = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
+}, { threshold: .1 });
+document.querySelectorAll('[data-r]').forEach(el => ro.observe(el));
 
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required />
-            </div>
+/* ── Counter ────────────────────────────────────────────── */
+function animCount(el, target) {
+  let v = 0, dur = 1600, step = target / dur * 16;
+  const run = () => { v = Math.min(v + step, target); el.textContent = (target >= 10 ? Math.floor(v) + '+' : Math.floor(v)); if (v < target) requestAnimationFrame(run); };
+  run();
+}
+const co = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { animCount(e.target, +e.target.dataset.count); co.unobserve(e.target); } });
+}, { threshold: .5 });
+document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
 
-            <div class="form-group">
-              <label for="requestType">Type of Request</label>
-              <select id="requestType" name="requestType" required>
-                <option value="" disabled selected>Choose an option</option>
-                <option value="consulting">Consulting</option>
-                <option value="speaking">Speaking</option>
-                <option value="collaboration">Collaboration</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
+/* ── Typewriter ─────────────────────────────────────────── */
+const phrases = [
+  'Data Scientist & ML Engineer',
+  'Computer Vision Developer',
+  'Python & AI Enthusiast',
+  'B.Tech CSE @ SAGE University',
+  'Turning data into decisions'
+];
+let pi = 0, ci = 0, deleting = false;
+const twEl = document.getElementById('tw');
+function type() {
+  const phrase = phrases[pi];
+  if (!deleting) {
+    twEl.textContent = phrase.slice(0, ++ci);
+    if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    twEl.textContent = phrase.slice(0, --ci);
+    if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+  }
+  setTimeout(type, deleting ? 45 : 85);
+}
+setTimeout(type, 800);
 
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
+/* ── Neural Network Canvas ──────────────────────────────── */
+(function() {
+  const canvas = document.getElementById('neuralCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [], animId;
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  class Node {
+    constructor() { this.reset(); }
+    reset() { this.x = Math.random()*W; this.y = Math.random()*H; this.vx = (Math.random()-.5)*.4; this.vy = (Math.random()-.5)*.4; this.r = Math.random()*2+1; this.pulse = Math.random()*Math.PI*2; }
+    update() { this.x+=this.vx; this.y+=this.vy; this.pulse+=.02; if(this.x<0||this.x>W)this.vx*=-1; if(this.y<0||this.y>H)this.vy*=-1; }
+  }
+  function init() { resize(); const count=Math.floor((W*H)/14000); nodes=Array.from({length:count},()=>new Node()); }
+  function getColor() { return document.documentElement.getAttribute('data-theme')==='light' ? 'rgba(124,58,237,' : 'rgba(124,58,237,'; }
+  function draw() {
+    ctx.clearRect(0,0,W,H); const c=getColor();
+    for(let i=0;i<nodes.length;i++) for(let j=i+1;j<nodes.length;j++) {
+      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<130){const alpha=(1-dist/130)*.35;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle=c+alpha+')';ctx.lineWidth=.8;ctx.stroke();}
+    }
+    nodes.forEach(n=>{n.update();const pulse=Math.sin(n.pulse)*.5+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r+pulse,0,Math.PI*2);ctx.fillStyle=c+(.5+pulse*.4)+')';ctx.fill();});
+    animId=requestAnimationFrame(draw);
+  }
+  init(); draw();
+  window.addEventListener('resize',()=>{cancelAnimationFrame(animId);init();draw();});
+})();
 
-            <button type="submit" class="btn primary">Send Request</button>
-          </form>
-        </div>
-      </section>
-    </main>
+/* ── Floating data stream ───────────────────────────────── */
+(function() {
+  const container = document.getElementById('dataStream');
+  const items = ['0.87','model.fit()','accuracy=94%','loss: 0.042','import numpy','df.head()','cv2.imshow()','predict(X)','confusion_matrix','precision=0.91','YOLO_v8','reshape(-1,1)','train_test_split','F1=0.93'];
+  function spawn() {
+    const el=document.createElement('div'); el.className='ds-item'; el.textContent=items[Math.floor(Math.random()*items.length)];
+    el.style.left=Math.random()*95+'%'; const dur=8+Math.random()*12; el.style.animationDuration=dur+'s'; el.style.animationDelay=Math.random()*-dur+'s';
+    container.appendChild(el); setTimeout(()=>el.remove(),(dur+2)*1000);
+  }
+  for(let i=0;i<10;i++)spawn(); setInterval(spawn,2500);
+})();
 
-    <footer class="footer">
-      <div class="container footer-content">
-        <p>© <span id="year"></span> Aditya Singh Baghel. All rights reserved.</p>
-        <nav>
-          <a href="index.html#home">Home</a>
-          <a href="about.html">About</a>
-          <a href="projects.html">Projects</a>
-          <a href="certifications.html">Certifications</a>
-          <a href="services.html">Services</a>
-          <a href="index.html#contact">Contact</a>
-        </nav>
-      </div>
-    </footer>
+/* ── Contact form ───────────────────────────────────────── */
+const form = document.getElementById('contactForm');
+const sb   = document.getElementById('submitBtn');
+const GURL = 'https://script.google.com/macros/s/AKfycbzLiSXYKTf3e_O9fax933yyavwlIkkiC3ht0HzP6_VwaPJfBqDqj4icS1m4KY7LG66w/exec';
+form.addEventListener('submit', async e => {
+  e.preventDefault(); sb.textContent = 'Sending…'; sb.disabled = true;
+  const fd = new FormData(form);
+  try {
+    await fetch(GURL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify({firstName:fd.get('firstName'),lastName:fd.get('lastName'),email:fd.get('email'),requestType:fd.get('requestType'),message:fd.get('message')}) });
+    sb.textContent = 'Sent!'; form.reset();
+  } catch(err) { sb.textContent = 'Try again'; sb.disabled = false; }
+});
 
-    <script>
-      const navbar = document.querySelector(".navbar");
-      const navToggle = document.querySelector(".nav-toggle");
-
-      if (navbar && navToggle) {
-        navToggle.addEventListener("click", () => {
-          navbar.classList.toggle("nav-open");
-        });
-      }
-
-      const yearSpan = document.getElementById("year");
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
-
-      // simple scroll reveal animations
-      const revealEls = document.querySelectorAll("[data-reveal]");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("reveal-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-
-      revealEls.forEach((el) => observer.observe(el));
-
-      // contact form -> Google Apps Script endpoint
-      const contactForm = document.getElementById("contactForm");
-      const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxNJSgeW1PEwU9nLuA1_2eysndeRDirvmiOx5-OZLIDRew1mWew76t9wX78yJABqQ7i/exec"; // TODO: replace
-
-      if (contactForm && GOOGLE_SCRIPT_URL.startsWith("https")) {
-        contactForm.addEventListener("submit", async (event) => {
-          event.preventDefault();
-
-          const formData = new FormData(contactForm);
-          const payload = {
-            firstName: formData.get("firstName"),
-            lastName: formData.get("lastName"),
-            email: formData.get("email"),
-            requestType: formData.get("requestType"),
-            message: formData.get("message"),
-            userAgent: navigator.userAgent,
-            source: window.location.href,
-          };
-
-          try {
-            await fetch(GOOGLE_SCRIPT_URL, {
-              method: "POST",
-              mode: "no-cors",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(payload),
-            });
-
-            contactForm.reset();
-            alert("Thank you! Your request has been sent.");
-          } catch (error) {
-            console.error("Error submitting form", error);
-            alert(
-              "There was a problem sending your request. Please email me directly at adityabharadwaj22.08@gmail.com."
-            );
-          }
-        });
-      }
-    </script>
-  </body>
+/* ── Init Lucide icons ──────────────────────────────────── */
+lucide.createIcons();
+</script>
+</body>
 </html>
