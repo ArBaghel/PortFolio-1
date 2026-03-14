@@ -386,7 +386,7 @@ body::after{
 /* ═══════════════════════════════════════════════════════════
    ABOUT
 ═══════════════════════════════════════════════════════════ */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:4.5rem;align-items:center}
 
 .about-photo-wrap{position:relative;display:flex;justify-content:center}
 
