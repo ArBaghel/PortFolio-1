@@ -94,6 +94,11 @@ button{font-family:var(--fb);cursor:pointer}
 /* ── Layout ─────────────────────────────────────────────── */
 .container{width:100%;max-width:1140px;margin:0 auto;padding:0 1.5rem}
 
+/* ── Default cursor ── */
+body { cursor: auto; }
+a, button, [role="button"], .fb-btn, .pi-btn, .cert-cta, .skill-pill { cursor: pointer; }
+.cursor-dot, .cursor-ring { display: none !important; }
+
 /* ── Noise texture overlay ──────────────────────────────── */
 body::after{
   content:'';
@@ -724,7 +729,8 @@ textarea{resize:vertical;min-height:115px}
   .hero-stats{gap:1.5rem}
   .ach-grid{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:.5rem}
-  .logo{position:absolute;left:50%;transform:translateX(-50%)}
+  .logo{position:static;left:auto;transform:none}
+  .theme-toggle{display:none!important}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}

@@ -23,6 +23,8 @@
 </head>
 <body>
 
+
+
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
     <div class="logo">ASB<span class="dot">.</span><span class="sub">Data Scientist</span></div>
@@ -32,10 +34,7 @@
       <li><a href="index.html#contact">Contact</a></li>
     </ul></nav>
     <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="icon-moon"><i data-lucide="moon" style="width:16px;height:16px"></i></span>
-        <span class="icon-sun"><i data-lucide="sun" style="width:16px;height:16px"></i></span>
-      </button>
+      
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
     </div>
   </div>
@@ -180,8 +179,9 @@
 
 <script>
 const html=document.documentElement,tt=document.getElementById('themeToggle');
-html.setAttribute('data-theme',localStorage.getItem('theme')||'dark');
-tt.addEventListener('click',()=>{const n=html.getAttribute('data-theme')==='dark'?'light':'dark';html.setAttribute('data-theme',n);localStorage.setItem('theme',n)});
+
+
+document.documentElement.setAttribute("data-theme","dark");
 const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
 window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
 nt.addEventListener('click',()=>nb.classList.toggle('nav-open'));
@@ -189,6 +189,13 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
 document.getElementById('year').textContent=new Date().getFullYear();
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+
+
+  document.querySelectorAll("a,button").forEach(el=>{
+    el.addEventListener("mouseenter",()=>{dot.classList.add("hovered");ring.classList.add("hovered");});
+    el.addEventListener("mouseleave",()=>{dot.classList.remove("hovered");ring.classList.remove("hovered");});
+  });
+})();
 lucide.createIcons();
 </script>
 </body>

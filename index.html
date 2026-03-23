@@ -12,6 +12,7 @@
 </head>
 <body>
 
+<!-- ── CUSTOM CURSOR ───────────────────────────────────── -->
 <!-- ── NAVBAR ───────────────────────────────────────────── -->
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
@@ -29,10 +30,7 @@
       </ul>
     </nav>
     <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="icon-moon"><i data-lucide="moon" style="width:16px;height:16px"></i></span>
-        <span class="icon-sun"><i data-lucide="sun" style="width:16px;height:16px"></i></span>
-      </button>
+      
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
@@ -111,13 +109,11 @@
 
       <!-- RIGHT PANEL -->
       <div class="hero-panel">
-        <!-- Data viz card -->
         <div class="dv-card">
           <div class="dv-header">
             <span class="dv-title">model_accuracy.json</span>
             <span class="dv-live"><span class="dv-dot"></span>live</span>
           </div>
-          <!-- Mini bar chart -->
           <div class="mini-chart">
             <div class="mc-bar" style="height:55%;--w:55%"></div>
             <div class="mc-bar" style="height:72%;--w:72%"></div>
@@ -129,7 +125,6 @@
             <div class="mc-bar" style="height:82%;--w:82%"></div>
             <div class="mc-bar" style="height:94%;--w:94%"></div>
           </div>
-          <!-- Skill bars -->
           <div class="skill-row">
             <div class="skill-meta"><span class="skill-name">Computer Vision</span><span class="skill-pct">92%</span></div>
             <div class="skill-track"><div class="skill-fill" style="--w:92%"></div></div>
@@ -148,7 +143,6 @@
           </div>
         </div>
 
-        <!-- Topics card -->
         <div class="info-card card">
           <div class="info-item">
             <div class="ii-icon"><i data-lucide="trending-up" style="width:18px;height:18px"></i></div>
@@ -179,13 +173,12 @@
     <div class="about-grid" data-r>
       <div>
         <div class="ew"><span class="el"></span>About Me</div>
-      <h2 class="st">Hi, I'm Aditya Singh Baghel <span class="ic ic-lg" style="color:var(--g3)"><i data-lucide="" style="width:1.3em;height:1.3em"></i></span></h2>
+        <h2 class="st">Hi, I'm Aditya Singh Baghel <span class="ic ic-lg" style="color:var(--g3)"><i data-lucide="zap" style="width:1.3em;height:1.3em"></i></span></h2>
         <p class="about-text" style="font-size:.94rem;color:var(--tx2);margin-bottom:1rem;line-height:1.85">
-          I’m a B.Tech Computer Science student at SAGE University Bhopal, passionate about Data Science, Machine learning, and Computer Vision.
+          I'm a B.Tech Computer Science student at SAGE University Bhopal, passionate about Data Science, Machine learning, and Computer Vision.
         </p>
         <p style="font-size:.94rem;color:var(--tx2);margin-bottom:1rem;line-height:1.85">
-        I thrive on solving problems with Python, analytics, and teamwork, and was recognized as Student of the Year at Sunstone Bhopal for my critical thinking.
-
+          I thrive on solving problems with Python, analytics, and teamwork, and was recognized as Student of the Year at Sunstone Bhopal for my critical thinking.
         </p>
         <div class="about-actions">
           <a href="about.html" class="btn btn-gold"><i data-lucide="user" style="width:15px;height:15px"></i> Learn More</a>
@@ -364,7 +357,7 @@
           <li>
             <div class="ci-ico"><i data-lucide="mail" style="width:16px;height:16px"></i></div>
             <strong>Email</strong>
-            <a href="mailto:adityasinghbaghel678@gmail.com">adityasinghbaghel678@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#3a5b5e534e435b4953545d52585b5d525f560e7a5d575b535614595557"><span class="__cf_email__" data-cfemail="96f7f2ffe2eff7e5fff8f1fef4f7f1fef3faa2d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></a>
           </li>
           <li>
             <div class="ci-ico"><i data-lucide="phone" style="width:16px;height:16px"></i></div>
@@ -435,26 +428,18 @@
   </div>
 </footer>
 
-<script>
-/* ── Theme ─────────────────────────────────────────────── */
-const html = document.documentElement;
-const tt   = document.getElementById('themeToggle');
-html.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
-tt.addEventListener('click', () => {
-  const n = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', n);
-  localStorage.setItem('theme', n);
-});
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Core setup ─────────────────────────────────────────── */
+document.documentElement.setAttribute('data-theme', 'dark');
+document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ── Navbar ─────────────────────────────────────────────── */
-const nb = document.getElementById('navbar');
-const nt = document.getElementById('navToggle');
+const nb  = document.getElementById('navbar');
+const nt  = document.getElementById('navToggle');
 window.addEventListener('scroll', () => nb.classList.toggle('scrolled', window.scrollY > 30));
 nt.addEventListener('click', () => nb.classList.toggle('nav-open'));
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nb.classList.remove('nav-open')));
-document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ── Scroll Reveal ─────────────────────────────────────── */
+/* ── Scroll reveal ──────────────────────────────────────── */
 const ro = new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); ro.unobserve(e.target); } });
 }, { threshold: .1 });
@@ -507,7 +492,7 @@ setTimeout(type, 800);
     update() { this.x+=this.vx; this.y+=this.vy; this.pulse+=.02; if(this.x<0||this.x>W)this.vx*=-1; if(this.y<0||this.y>H)this.vy*=-1; }
   }
   function init() { resize(); const count=Math.floor((W*H)/14000); nodes=Array.from({length:count},()=>new Node()); }
-  function getColor() { return document.documentElement.getAttribute('data-theme')==='light' ? 'rgba(124,58,237,' : 'rgba(124,58,237,'; }
+  function getColor() { return 'rgba(124,58,237,'; }
   function draw() {
     ctx.clearRect(0,0,W,H); const c=getColor();
     for(let i=0;i<nodes.length;i++) for(let j=i+1;j<nodes.length;j++) {
@@ -524,6 +509,7 @@ setTimeout(type, 800);
 /* ── Floating data stream ───────────────────────────────── */
 (function() {
   const container = document.getElementById('dataStream');
+  if (!container) return;
   const items = ['0.87','model.fit()','accuracy=94%','loss: 0.042','import numpy','df.head()','cv2.imshow()','predict(X)','confusion_matrix','precision=0.91','YOLO_v8','reshape(-1,1)','train_test_split','F1=0.93'];
   function spawn() {
     const el=document.createElement('div'); el.className='ds-item'; el.textContent=items[Math.floor(Math.random()*items.length)];
@@ -542,11 +528,16 @@ form.addEventListener('submit', async e => {
   const fd = new FormData(form);
   try {
     await fetch(GURL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify({firstName:fd.get('firstName'),lastName:fd.get('lastName'),email:fd.get('email'),requestType:fd.get('requestType'),message:fd.get('message')}) });
-    sb.textContent = 'Sent!'; form.reset();
-  } catch(err) { sb.textContent = 'Try again'; sb.disabled = false; }
+    sb.innerHTML = '<i data-lucide="check" style="width:15px;height:15px"></i> Sent!';
+    sb.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+    form.reset(); lucide.createIcons();
+  } catch {
+    sb.textContent = 'Error — try again';
+    sb.style.background = 'var(--red)';
+  }
+  sb.disabled = false;
 });
 
-/* ── Init Lucide icons ──────────────────────────────────── */
 lucide.createIcons();
 </script>
 </body>
