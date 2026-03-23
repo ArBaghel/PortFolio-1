@@ -329,27 +329,35 @@
 </footer>
 
 <script>
-const html=document.documentElement,tt=document.getElementById('themeToggle');
-
-
 document.documentElement.setAttribute("data-theme","dark");
-const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
-window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
-nt.addEventListener('click',()=>nb.classList.toggle('nav-open'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nb.classList.remove('nav-open')));
-document.getElementById('year').textContent=new Date().getFullYear();
-const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
-const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animated');so.unobserve(e.target)}})},{threshold:.3});
-document.querySelectorAll('[data-skill]').forEach(el=>so.observe(el));
 
+window.addEventListener('DOMContentLoaded', () => {
+  // Navbar
+  const nb=document.getElementById('navbar'), nt=document.getElementById('navToggle');
+  window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
+  nt.addEventListener('click',()=>nb.classList.toggle('nav-open'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nb.classList.remove('nav-open')));
+  document.getElementById('year').textContent=new Date().getFullYear();
 
-  document.querySelectorAll("a,button").forEach(el=>{
-    el.addEventListener("mouseenter",()=>{dot.classList.add("hovered");ring.classList.add("hovered");});
-    el.addEventListener("mouseleave",()=>{dot.classList.remove("hovered");ring.classList.remove("hovered");});
-  });
-})();
-lucide.createIcons();
+  // Lucide icons — must run after DOM is fully ready
+  lucide.createIcons();
+
+  // Scroll-reveal observer
+  const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+  // Trigger elements already in viewport
+  setTimeout(()=>document.querySelectorAll('[data-r]').forEach(el=>{
+    const r=el.getBoundingClientRect();if(r.top<window.innerHeight)el.classList.add('on');
+  }), 80);
+
+  // Skill bars — animate when scrolled into view
+  const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animated');so.unobserve(e.target)}})},{threshold:.2});
+  document.querySelectorAll('[data-skill]').forEach(el=>so.observe(el));
+  // Also trigger if skill section already visible
+  setTimeout(()=>document.querySelectorAll('[data-skill]').forEach(el=>{
+    const r=el.getBoundingClientRect();if(r.top<window.innerHeight)el.classList.add('animated');
+  }), 250);
+});
 </script>
 </body>
 </html>

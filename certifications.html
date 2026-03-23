@@ -19,6 +19,8 @@
     .rm-card .rm-icon{width:38px;height:38px;border-radius:10px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);display:flex;align-items:center;justify-content:center;color:var(--g1);margin-bottom:.75rem}
     @media(max-width:700px){.roadmap-grid{grid-template-columns:1fr}}
     @media(max-width:480px){.cert-grid{grid-template-columns:1fr}}
+
+
   </style>
 </head>
 <body>
@@ -178,9 +180,6 @@
 </footer>
 
 <script>
-const html=document.documentElement,tt=document.getElementById('themeToggle');
-
-
 document.documentElement.setAttribute("data-theme","dark");
 const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
 window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
@@ -189,13 +188,6 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
 document.getElementById('year').textContent=new Date().getFullYear();
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
-
-
-  document.querySelectorAll("a,button").forEach(el=>{
-    el.addEventListener("mouseenter",()=>{dot.classList.add("hovered");ring.classList.add("hovered");});
-    el.addEventListener("mouseleave",()=>{dot.classList.remove("hovered");ring.classList.remove("hovered");});
-  });
-})();
 lucide.createIcons();
 </script>
 </body>

@@ -233,9 +233,6 @@
 </footer>
 
 <script>
-const html=document.documentElement,tt=document.getElementById('themeToggle');
-
-
 document.documentElement.setAttribute("data-theme","dark");
 const nb=document.getElementById('navbar'),nt=document.getElementById('navToggle');
 window.addEventListener('scroll',()=>nb.classList.toggle('scrolled',window.scrollY>30));
@@ -244,6 +241,8 @@ document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',
 document.getElementById('year').textContent=new Date().getFullYear();
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('[data-r]').forEach(el=>ro.observe(el));
+// Trigger items already in viewport on load
+setTimeout(()=>document.querySelectorAll('[data-r]').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight)el.classList.add('on')}),100);
 
 // Filter
 const items=document.querySelectorAll('.proj-item');
@@ -262,13 +261,6 @@ btns.forEach(b=>b.addEventListener('click',()=>{
   });
 }));
 
-
-
-  document.querySelectorAll("a,button").forEach(el=>{
-    el.addEventListener("mouseenter",()=>{dot.classList.add("hovered");ring.classList.add("hovered");});
-    el.addEventListener("mouseleave",()=>{dot.classList.remove("hovered");ring.classList.remove("hovered");});
-  });
-})();
 lucide.createIcons();
 </script>
 </body>
